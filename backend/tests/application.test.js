@@ -6,8 +6,7 @@ import request from "supertest";
 describe("Application API", () => {
     it("should block unauthenticated apply", async () => {
         const res = await request(app)
-            .post("/api/apply/123")
-            .set('User-Agent', 'jest-test');
+            .post("/api/apply/123");
 
         expect(res.statusCode).toBe(401);
     });
