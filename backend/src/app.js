@@ -25,13 +25,18 @@ const __dirname = path.dirname(__filename);
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-app.use(async (req, res, next) => {
-    const decision = await aj.protect(req);
-    if (decision.isDenied()) {
-        return res.status(403).json({ message: "Request blocked" })
-    }
-    next();
-})
+// Only use Arcjet if API key is configured
+if (process.env.ARCJET_KEY) {
+    app.use(async (req, res, next) => {
+        const decision = await aj.protect(req);
+        if (decision.isDenied()) {
+            return res.status(403).json({ message: "Request blocked" })
+        }
+        next();
+    });
+} else {
+    console.log('⚠️  Arcjet disabled - ARCJET_KEY not set');
+}
 
 
 app.use("/api/auth", authRoutes)

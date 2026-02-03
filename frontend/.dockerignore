@@ -2,7 +2,10 @@
 node_modules
 npm-debug.log
 yarn-error.log
-# package-lock.json is needed by Dockerfile for npm ci
+
+# Build output
+dist
+build
 
 # Environment files
 .env
@@ -15,9 +18,9 @@ yarn-error.log
 .github
 
 # Testing
-tests
-*.test.js
 coverage
+*.test.js
+*.spec.js
 
 # Logs
 logs
@@ -42,5 +45,6 @@ docker-compose.yml
 README.md
 *.md
 
-# Scripts (optional - remove if needed in container)
-docker-run.sh
+# Development
+.eslintrc*
+.prettierrc*
