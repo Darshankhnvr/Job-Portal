@@ -4,6 +4,9 @@ const router = express.Router();
 
 router.post("/register", register);
 router.post("/login", login);
-router.post("/admin/login", adminLogin)
+router.post("/admin/login", (req, res, next) => {
+    console.log('Admin login route hit');
+    next();
+}, adminLogin)
 
 export default router;

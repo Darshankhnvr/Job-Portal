@@ -1,0 +1,65 @@
+.job-card {
+  cursor: pointer;
+  transition: all var(--transition-base);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-card-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.job-company {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--primary-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.job-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.job-location,
+.job-date {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.job-location svg,
+.job-date svg {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .job-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

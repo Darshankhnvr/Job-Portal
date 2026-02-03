@@ -1,0 +1,131 @@
+.job-listing-page {
+  min-height: 100vh;
+  padding: var(--spacing-2xl) 0;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.page-header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.search-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.search-input,
+.filter-input {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: all var(--transition-base);
+}
+
+.search-input:focus-within,
+.filter-input:focus-within {
+  border-color: var(--primary);
+  background: var(--bg-tertiary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-input svg,
+.filter-input svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.search-input input,
+.filter-input input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.search-input input::placeholder,
+.filter-input input::placeholder {
+  color: var(--text-muted);
+}
+
+.results-count {
+  margin-bottom: var(--spacing-lg);
+}
+
+.results-count p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-secondary);
+}
+
+.no-results svg {
+  color: var(--primary);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.no-results p {
+  color: var(--text-muted);
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .search-section {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+}

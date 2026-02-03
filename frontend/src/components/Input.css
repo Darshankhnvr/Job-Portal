@@ -1,0 +1,90 @@
+.input-wrapper {
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-md);
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  background: var(--bg-tertiary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-label {
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  pointer-events: none;
+  background: var(--bg-card);
+  padding: 0 var(--spacing-xs);
+}
+
+.input-container.active .input-label,
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+  font-size: 0.75rem;
+  color: var(--primary);
+  background: var(--bg-primary);
+}
+
+.input-container.error .input-field {
+  border-color: #ef4444;
+}
+
+.input-container.error .input-label {
+  color: #ef4444;
+}
+
+.input-error {
+  display: block;
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+  animation: slideIn 0.3s ease-out;
+}
+
+.required {
+  color: #ef4444;
+}
+
+/* Textarea variant */
+textarea.input-field {
+  min-height: 120px;
+  resize: vertical;
+  padding-top: var(--spacing-lg);
+}
+
+textarea.input-field + .input-label {
+  top: var(--spacing-lg);
+}
+
+textarea.input-field:focus + .input-label,
+textarea.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+}

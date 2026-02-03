@@ -1,0 +1,75 @@
+.create-job-page {
+  min-height: 100vh;
+  padding: var(--spacing-2xl) 0;
+}
+
+.create-job-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.form-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.form-icon svg {
+  color: var(--text-primary);
+}
+
+.form-header h1 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.job-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .create-job-card {
+    padding: var(--spacing-xl);
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}

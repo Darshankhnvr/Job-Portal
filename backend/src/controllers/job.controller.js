@@ -25,10 +25,7 @@ export const updateJob = async (req, res) => {
         return res.status(400).json({ message: "Job not found" })
     }
 
-    if (job.createdBy.toString() !== req.user.id) {
-        return res.status(400).json({ message: "You are not authorized to update this job" })
-    }
-
+    // Allow any admin to update any job
     Object.assign(job, req.body);
     await job.save();
 
@@ -42,26 +39,22 @@ export const deleteJob = async (req, res) => {
         return res.status(400).json({ message: "Job not found" })
     }
 
-    if (job.createdBy.toString() !== req.user.id) {
-        return res.status(400).json({ message: "You are not authorized to update this job" })
-    }
-
+    // Allow any admin to delete any job
     await job.deleteOne();
 
     res.json({ message: "Job deleted successfully" })
 }
 
-export const getAllJobs = async(req, res) =>{
-    const jobs = await Job.find().sort({createdAt : -1})
+export const getAllJobs = async (req, res) => {
+    const jobs = await Job.find().sort({ createdAt: -1 })
     res.json(jobs)
 }
 
-export const getJobById = async(req, res) =>{
+export const getJobById = async (req, res) => {
     const job = await Job.findById(req.params.id)
 
-    if(!job)
-    {
-        res.status(400).json({message:"Job not found"})
+    if (!job) {
+        res.status(400).json({ message: "Job not found" })
     }
 
     res.json(job);

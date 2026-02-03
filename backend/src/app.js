@@ -15,7 +15,7 @@ dotenv.config()
 
 const app = express();
 app.use(cors());
-app.use(helmet({crossOriginResourcePolicy: false}));
+app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(morgan("dev"))
 app.use(express.json());
 
@@ -25,15 +25,13 @@ const __dirname = path.dirname(__filename);
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
-app.use(async (req, res, next) =>{
+app.use(async (req, res, next) => {
     const decision = await aj.protect(req);
-    if(decision.isDenied()){
-        return res.status(403).json({message: "Request blocked"})
+    if (decision.isDenied()) {
+        return res.status(403).json({ message: "Request blocked" })
     }
     next();
 })
-
-app.use(errorHandler)
 
 
 app.use("/api/auth", authRoutes)
@@ -42,12 +40,15 @@ app.use("/api/jobs", jobRoutes)
 
 app.use("/api", applicationRoutes)
 
-app.get("/", (req, res) =>{
-    res.status(200).json({message: "Welcome to the Job Portal"})
+app.get("/", (req, res) => {
+    res.status(200).json({ message: "Welcome to the Job Portal" })
 })
 
-app.get("/health", (req, res) =>{
-    res.status(200).json({status: "OK"})
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "OK" })
 })
+
+// Error handler must be last
+app.use(errorHandler)
 
 export default app;

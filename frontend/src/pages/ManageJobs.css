@@ -1,0 +1,138 @@
+.manage-jobs-page {
+  min-height: 100vh;
+  padding: var(--spacing-2xl) 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-2xl);
+  gap: var(--spacing-lg);
+}
+
+.page-header h1 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.manage-job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-lg);
+}
+
+.job-info {
+  flex: 1;
+}
+
+.job-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.job-details {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.95rem;
+}
+
+.job-date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.job-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.no-jobs {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-secondary);
+}
+
+.no-jobs svg {
+  color: var(--primary);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.5;
+}
+
+.no-jobs h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.no-jobs p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.delete-modal-content {
+  padding: var(--spacing-md) 0;
+}
+
+.delete-modal-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .manage-job-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .job-actions button {
+    width: 100%;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}
