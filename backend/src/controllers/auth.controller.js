@@ -10,6 +10,11 @@ const generateToken = (payload) => {
 export const register = async (req, res) => {
     const { name, email, password } = req.body;
 
+    // Validate input
+    if (!name || !email || !password) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
@@ -43,7 +48,7 @@ export const login = async (req, res) => {
     }
 
     const token = generateToken({ id: user._id, role: "user" })
- 
+
 
     return res.status(200).json({ token });
 

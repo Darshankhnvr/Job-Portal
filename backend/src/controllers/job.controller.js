@@ -14,7 +14,7 @@ export const createJob = async (req, res) => {
         createdBy: req.user.id
     })
 
-    res.status(200).json(job)
+    res.status(201).json(job)
 }
 
 export const updateJob = async (req, res) => {
