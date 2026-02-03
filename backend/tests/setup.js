@@ -1,11 +1,13 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-beforeAll(async () =>{
-    if(mongoose.connection.readyState === 0){
-        await mongoose.connect(process.env.MONGO_URI)
-    }
-})
+beforeAll(async () => {
+  jest.setTimeout(30000);
 
-afterAll(async () =>{
-    await mongoose.connection.close()
-})
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(process.env.MONGO_URI);
+  }
+});
+
+afterAll(async () => {
+  await mongoose.disconnect();
+});
